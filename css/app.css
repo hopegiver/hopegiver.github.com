@@ -1,0 +1,8 @@
+.debug {
+  border: 1px solid red;
+}
+.left-menu-title {
+  background-color: skyblue;
+  padding-top:20px;
+  padding-bottom:20px;
+}
