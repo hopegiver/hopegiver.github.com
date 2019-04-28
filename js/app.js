@@ -18,9 +18,9 @@ router.beforeEach((to, from, next) => {
         var url = comp.template.replace(/<\/?[^>]+(>|$)/g, "");
         call(url, function(str) {
             comp.template = str;
+            next();            
         });
     }
-    next();
 });
 
 var app = new Vue({
@@ -34,6 +34,6 @@ function call(url, callback) {
           callback(this.responseText);
         }
     };
-    xhttp.open("GET", url, false);
+    xhttp.open("GET", url, true);
     xhttp.send();
 }
