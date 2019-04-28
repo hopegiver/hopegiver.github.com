@@ -1,7 +1,7 @@
-var Index = { template: '<!---->', templateUrl: 'pages/index.html' }
-var Foo = { template: '<!---->', templateUrl: 'pages/foo.html' }
-var Bar = { template: '<!---->', templateUrl: 'pages/bar.html' }
-var About = { template: '<!---->', templateUrl: 'pages/about.html' }
+var Index = { template: '<url>pages/index.html</url>' }
+var Foo = { template: '<url>pages/foo.html</url>' }
+var Bar = { template: '<url>pages/bar.html</url>' }
+var About = { template: '<url>pages/about.html</url>' }
 
 var router = new VueRouter({
     routes: [
@@ -14,12 +14,11 @@ var router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
     var comp = to.matched[0].components.default;
-    if(comp.template == '<!---->' && comp.templateUrl != undefined) {
-        call(comp.templateUrl, function(str) {
-            console.log(str);
+    if(comp.template.startsWith('<url>') && comp.template.endsWith('</url>')) {
+        var url = comp.template.replace(/<\/?[^>]+(>|$)/g, "");
+        call(url, function(str) {
             comp.template = str;
         });
-       //'<h1>hahah</h1>';
     }
     next();
 });
