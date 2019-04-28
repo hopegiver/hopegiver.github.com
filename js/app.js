@@ -1,9 +1,13 @@
 var Index = { template: '<!---->', templateUrl: 'pages/index.html' }
+var Foo = { template: '<!---->', templateUrl: 'pages/foo.html' }
+var Bar = { template: '<!---->', templateUrl: 'pages/bar.html' }
 var About = { template: '<!---->', templateUrl: 'pages/about.html' }
 
 var router = new VueRouter({
     routes: [
         { path: '/', component: Index },
+        { path: '/foo', component: Foo },
+        { path: '/bar', component: Bar },
         { path: '/about', component: About }
     ]
 });
