@@ -19,7 +19,7 @@ router.beforeEach((to, from, next) => {
             console.log(str);
             comp.template = str;
         });
-       //comp.template = '<h1>hahah</h1>';
+       //'<h1>hahah</h1>';
     }
     next();
 });
@@ -31,10 +31,10 @@ var app = new Vue({
 function call(url, callback) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        callback(this.responseText);
-      }
+        if (this.readyState == 4 && this.status == 200) {
+          callback(this.responseText);
+        }
     };
-    xhttp.open("GET", url, true);
+    xhttp.open("GET", url, false);
     xhttp.send();
 }
