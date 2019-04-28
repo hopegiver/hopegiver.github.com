@@ -16,6 +16,7 @@ router.beforeEach((to, from, next) => {
     var comp = to.matched[0].components.default;
     if(comp.template == '<!---->' && comp.templateUrl != undefined) {
         call(comp.templateUrl, function(str) {
+            console.log(str);
             comp.template = str;
         });
        //comp.template = '<h1>hahah</h1>';
